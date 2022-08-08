@@ -5,7 +5,7 @@ import os.path
 import xlwt
 from loguru import logger
 
-from xmind2case.utils import get_xmind_testcase_list, get_absolute_path
+from Xcase.utils import get_xmind_testcase_list, get_absolute_path
 
 """
 Convert XMind fie to Htp testcase xlsx file 

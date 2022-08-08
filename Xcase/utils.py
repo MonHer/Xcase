@@ -5,7 +5,7 @@ import os
 import json
 import xmindparser
 from loguru import logger
-from xmind2case.generalparser import xmind_to_testsuites
+from Xcase.generalparser import xmind_to_testsuites
 
 xmindparser.config = {
     'showTopicId': False,  # 是否展示主题ID

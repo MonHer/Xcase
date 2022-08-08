@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 from loguru import logger
-from xmind2case.metadata import TestSuite, TestCase, TestStep
+from Xcase.metadata import TestSuite, TestCase, TestStep
 
 config = {
     'sep': ' ',

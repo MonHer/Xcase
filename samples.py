@@ -3,9 +3,9 @@
 import json
 import logging
 
-from xmind2case.utils import get_xmind_testcase_list, xmind_testcase_to_json_file
-from xmind2case.utils import get_xmind_testsuite_list, xmind_testsuite_to_json_file
-from xmind2case.xmind2htp import xmind_to_htp_xlsx_file
+from Xcase.utils import get_xmind_testcase_list, xmind_testcase_to_json_file
+from Xcase.utils import get_xmind_testsuite_list, xmind_testsuite_to_json_file
+from Xcase.xmind2htp import xmind_to_htp_xlsx_file
 
 logging.basicConfig(level=logging.INFO)
 
