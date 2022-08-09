@@ -49,8 +49,6 @@ def xmind_to_htp_xlsx_file(xmind_file):
     xmind_file = get_absolute_path(xmind_file)
     logger.info('Start converting XMind file(%s) to htp file...' % xmind_file)
     testcases = get_xmind_testcase_list(xmind_file)
-    # print(testcases)
-    # print('testcases', testcases)
 
     fileheader = ['用例编号', '用例树目录', '用例名称', '摘要', '前置条件', '测试步骤', '预期结果', '用例等级', '自动化覆盖', '状态', '用例类型']
     htp_testcase_rows = [fileheader]
@@ -99,7 +97,6 @@ def xmind_to_htp_xlsx_file(xmind_file):
 
 
 def gen_a_testcase_row(testcase_dict):
-    # print(testcase_dict)
     case_number = ''
     case_tree = get_case_module(testcase_dict['product']) + '_' + get_case_module(testcase_dict['suite'])
     case_title = testcase_dict['name']
@@ -141,13 +138,12 @@ def gen_case_priority(priority):
         # print('--------%s' % priority)
         return mapping[priority]
     else:
-        return 'P2'
+        return 'P3'
 
 
 def gen_case_type(case_type):
-    mapping = {1: '功能用例', 2: '回归用例', 3: '冒烟用例'}
+    mapping = {1: '功能用例', 2: '冒烟回归用例'}
     if case_type in mapping.keys():
-        # print('--------%s' % case_type)
         return mapping[case_type]
     else:
         return '功能用例'

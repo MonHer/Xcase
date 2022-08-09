@@ -72,7 +72,7 @@ def get_xmind_testsuite_list(xmind_file):
                     suite_statistics['skipped'] += 1
                 else:
                     logger.warning('This testcase result is abnormal: %s, please check it: %s', case.result,
-                                    case.to_dict())
+                                   case.to_dict())
             sub_suite.statistics = suite_statistics
             for item in product_statistics:
                 product_statistics[item] += suite_statistics[item]
@@ -106,7 +106,6 @@ def get_xmind_testcase_list(xmind_file):
                 case_data['suite'] = suite.name
                 testcases.append(case_data)
 
-
     logger.info('Convert XMind file(%s) to testcases dict data successfully!' % xmind_file)
     return testcases
 
@@ -126,7 +125,7 @@ def xmind_testsuite_to_json_file(xmind_file):
     with open(testsuite_json_file, 'w', encoding='utf8') as f:
         f.write(json.dumps(testsuites, indent=4, separators=(',', ': '), ensure_ascii=False))
         logger.info('Convert XMind file(%s) to a testsuite json file(%s) successfully!', xmind_file,
-                     testsuite_json_file)
+                    testsuite_json_file)
 
     return testsuite_json_file
 
@@ -145,6 +144,7 @@ def xmind_testcase_to_json_file(xmind_file):
 
     with open(testcase_json_file, 'w', encoding='utf8') as f:
         f.write(json.dumps(testcases, indent=4, separators=(',', ': '), ensure_ascii=False))
-        logger.info('Convert XMind file(%s) to a testcase json file(%s) successfully!' % (xmind_file, testcase_json_file))
+        logger.info(
+            'Convert XMind file(%s) to a testcase json file(%s) successfully!' % (xmind_file, testcase_json_file))
 
     return testcase_json_file

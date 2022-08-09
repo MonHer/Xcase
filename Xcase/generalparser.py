@@ -214,7 +214,7 @@ def gen_testcase_preconditions(topics):
 def gen_testcase_summary(topics):
     # 旧版本的 xmind 可以评论 comment, TestCase 的摘要通过评论定义，但是新的 xmind 把评论字段删除了
     # 摘要暂时先用字段 callout 标注 日常htp平台暂时也不经常写摘要
-    callouts = [topic['comment'] for topic in topics]
+    callouts = [topic['comment'] for topic in topics] or [topic['callout'] for topic in topics]
     callouts = filter_empty_or_ignore_element(callouts)
     return config['summary_sep'].join(callouts)
 
