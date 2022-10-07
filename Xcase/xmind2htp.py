@@ -110,7 +110,7 @@ def gen_a_testcase_row(testcase_dict):
     case_apply_phase = ''
     case_state = ''
     case_type = gen_case_type(testcase_dict['execution_type'])
-    row = [case_number,case_product, case_tree, case_title, case_summary, case_precontion, case_step, case_expected_result,
+    row = [case_number, case_product, case_tree, case_title, case_precontion, case_step, case_expected_result,
            case_priority, case_apply_phase, case_state, case_type]
     return row
 
