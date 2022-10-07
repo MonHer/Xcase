@@ -49,8 +49,9 @@ def xmind_to_htp_xlsx_file(xmind_file):
     xmind_file = get_absolute_path(xmind_file)
     logger.info('Start converting XMind file(%s) to htp file...' % xmind_file)
     testcases = get_xmind_testcase_list(xmind_file)
+    print(testcases)
 
-    fileheader = ['用例编号', '用例树目录', '用例名称', '摘要', '前置条件', '测试步骤', '预期结果', '用例等级', '自动化覆盖', '状态', '用例类型']
+    fileheader = ['用例编号', "所属产品", '所属模块', '用例名称', '前置条件', '测试步骤', '预期结果', '用例等级', '自动化覆盖', '状态', '用例类型']
     htp_testcase_rows = [fileheader]
     for testcase in testcases:
         row = gen_a_testcase_row(testcase)
@@ -98,7 +99,9 @@ def xmind_to_htp_xlsx_file(xmind_file):
 
 def gen_a_testcase_row(testcase_dict):
     case_number = ''
-    case_tree = get_case_module(testcase_dict['product']) + '_' + get_case_module(testcase_dict['suite'])
+    # case_tree = get_case_module(testcase_dict['product']) + '_' + get_case_module(testcase_dict['suite'])
+    case_product = get_case_module(testcase_dict['product'])
+    case_tree = get_case_module(testcase_dict['suite'])
     case_title = testcase_dict['name']
     case_summary = ''
     case_precontion = testcase_dict['preconditions']
@@ -107,7 +110,7 @@ def gen_a_testcase_row(testcase_dict):
     case_apply_phase = ''
     case_state = ''
     case_type = gen_case_type(testcase_dict['execution_type'])
-    row = [case_number, case_tree, case_title, case_summary, case_precontion, case_step, case_expected_result,
+    row = [case_number,case_product, case_tree, case_title, case_summary, case_precontion, case_step, case_expected_result,
            case_priority, case_apply_phase, case_state, case_type]
     return row
 
@@ -133,7 +136,7 @@ def gen_case_step_and_expected_result(steps):
 
 
 def gen_case_priority(priority):
-    mapping = {1: 'P1', 2: 'P2', 3: 'P3'}
+    mapping = {1: 'P0', 2: 'P1', 3: 'P2'}
     if priority in mapping.keys():
         # print('--------%s' % priority)
         return mapping[priority]

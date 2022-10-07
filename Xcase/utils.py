@@ -32,6 +32,7 @@ def get_xmind_testsuites(xmind_file):
     """Load the XMind file and parse to `xmind2testcase.metadata.TestSuite` list"""
     xmind_file = get_absolute_path(xmind_file)
     xmind_content_dict = xmindparser.xmind_to_dict(xmind_file)
+    # print(xmind_content_dict)
     logger.debug("loading XMind file(%s) dict data: %s" % (xmind_file, xmind_content_dict))
 
     if xmind_content_dict:

@@ -23,6 +23,7 @@ def xmind_to_testsuites(xmind_content_dict):
 
         if sub_topics:
             root_topic['topics'] = filter_empty_or_ignore_topic(sub_topics)
+            # print(root_topic['topics'])
 
         else:
             logger.warning('This is a blank sheet(%s), should have at least 1 sub topic(test suite)' % sheet['title'])
